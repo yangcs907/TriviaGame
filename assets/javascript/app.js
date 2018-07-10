@@ -70,12 +70,12 @@ var game = {
       panel.append("<h2>" + questions[i].question + "</h2>");
       for (var j = 0; j < questions[i].answers.length; j++) {
         // input tag specifies input field where user can input data, this is the "answer" portion, every possible answer is iterated and appended to page
-        panel.append("<input type='radio' name='question-" + i +
-        "' value='" + questions[i].answers[j] + "''>" + questions[i].answers[j]);
+        panel.append("<p id='answers'><input type='radio' name='question-" + i +
+        "' value='" + questions[i].answers[j] + "''></p>" + questions[i].answers[j]);
       }
     }
     // this adds "done" button after all of the questions and answers have been appended to page
-    panel.append("<button id='done'>Done</button>");
+    panel.append("<br></br><button id='done'><h1>Click Here When Done!</h1></button>");
   },
 
   done: function() {
@@ -167,6 +167,9 @@ var game = {
     clearInterval(timer);
     // .remove will remove content from element id=sub-wrapper
     $("#sub-wrapper h2").remove();
+    $("#wrapper h1").remove();
+    $("#wrapper h3").remove();
+
     // panel refers to id=quiz-area as defined at top of code
     // .html(***) will set content and overwrite all matching elements
     panel.html("<h2>All Done!</h2>");
